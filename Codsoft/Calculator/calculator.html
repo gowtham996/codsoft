@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Calculator</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <style>
+    body {
+      background: #EFE1D1;
+      font-family: Arial, sans-serif;
+    }
+
+    .calculator {
+      width: 300px;
+      margin: 0 auto;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      background: #A78295;
+    }
+
+    .calculator-heading {
+      text-align: center;
+      font-size: 24px;
+      margin-bottom: 10px;
+      background: #3F2E3E;
+      color: #EFE1D1;
+      padding: 10px;
+      border-radius: 5px;
+    }
+
+    .output {
+      text-align: right;
+      font-size: 24px;
+      margin-bottom: 10px;
+      height: 50px;
+      background: #3F2E3E;
+      color: #EFE1D1;
+      padding: 10px;
+      border-radius: 5px;
+    }
+
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 5px;
+    }
+
+    .button {
+      font-size: 18px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      cursor: pointer;
+      background: #331D2C;
+      color: #EFE1D1;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .button:hover {
+      background-color: #3F2E3E;
+      transform: scale(1.05);
+    }
+
+    .button:active {
+      transform: scale(0.95);
+    }
+
+    .button.equal {
+      grid-column: span 2;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container mt-5">
+    <div class="calculator">
+      <div class="calculator-heading">Calculator</div>
+      <div class="output" id="output">0</div>
+      <div class="buttons">
+
+        <div class="button" onclick="appendToOutput('1')">1</div>
+        <div class="button" onclick="appendToOutput('2')">2</div>
+        <div class="button" onclick="appendToOutput('3')">3</div>
+        <div class="button" onclick="appendToOutput('4')">4</div>
+        <div class="button" onclick="appendToOutput('5')">5</div>
+        <div class="button" onclick="appendToOutput('6')">6</div>
+        <div class="button" onclick="appendToOutput('7')">7</div>
+        <div class="button" onclick="appendToOutput('8')">8</div>
+        <div class="button" onclick="appendToOutput('9')">9</div>
+        <div class="button" onclick="appendToOutput('0')">0</div>
+        <div class="button" onclick="appendToOutput('.')">.</div>
+
+        <div class="button" onclick="appendToOutput('+')">+</div>
+        <div class="button" onclick="appendToOutput('-')">-</div>
+        <div class="button" onclick="appendToOutput('*')">*</div>
+        <div class="button" onclick="appendToOutput('/')">/</div>
+        <div class="button" onclick="appendToOutput('(')">(</div>
+        <div class="button" onclick="calculateResult('=')">=</div>
+        <div class="button equal " onclick="clearOutput()">C</div>
+        <div class="button" onclick="appendToOutput(')')">)</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+  <script>
+    let outputElement = document.getElementById('output');
+    let currentInput = '';
+
+    function appendToOutput(value) {
+      currentInput += value;
+      outputElement.textContent = currentInput;
+    }
+
+    function clearOutput() {
+      currentInput = '';
+      outputElement.textContent = '0';
+    }
+
+    function calculateResult() {
+      try {
+        currentInput = eval(currentInput);
+        outputElement.textContent = currentInput;
+      } catch (error) {
+        outputElement.textContent = 'Error';
+      }
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #121212;
+            color: #e0e0e0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        header {
+            background-color: #121212;
+            color: #ecf0f1;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .name {
+            background-color: #eaab57;
+            text-align: left;
+            padding-left: 70px;
+        }
+
+        nav {
+            background-color: #121212;
+        }
+
+        .navbar-brand {
+            color: #ffffff;
+            font-size: 24px;
+        }
+
+        .navbar-toggler-icon {
+            background-color: #ffffff;
+        }
+
+        .navbar-nav {
+            text-align: center;
+        }
+
+        .navbar-nav .nav-item {
+            margin: 0 10px;
+        }
+
+        .menu-link {
+            text-decoration: none;
+            color: #ffffff;
+            padding: 10px 20px;
+            transition-duration: 0.3s;
+            transition: background-color 0.3s, color 0.3s;
+            position: relative;
+            display: inline-block;
+        }
+
+        .menu-link:hover {
+            background-color: #eaab57;
+            color: #000000;
+            border-radius: 10%;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .menu-link:hover::after {
+            /* right arrow character */
+            margin-left: 5px;
+            transition: margin-left 0.3s;
+        }
+
+        .menu-link:hover::before {
+            /* left arrow character */
+            margin-right: 5px;
+            transition: margin-right 0.3s;
+        }
+
+        .menu-link::before,
+        .menu-link::after {
+            opacity: 0;
+            display: inline-block;
+            vertical-align: middle;
+            font-size: 18px;
+        }
+
+        .menu-link:hover::before,
+        .menu-link:hover::after {
+            opacity: 1;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .about,
+        .skills,
+        .projects,
+        .contact,
+        .bio,
+        .resume {
+            background-color: #1e1e1e;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .section-title {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #eaab57;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .project {
+            margin: 20px 0;
+        }
+
+        .submit-button {
+            background-color: #eaab57;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .submit-button:hover {
+            background-color: #544b44;
+        }
+
+        .menu-link:hover {
+            background-color: #eaab57;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10%;
+        }
+
+        .footer {
+            background-color: #121212;
+            color: #ecf0f1;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .copyright {
+            font-size: 14px;
+        }
+
+        .progress {
+            height: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: #373737;
+        }
+
+        .progress-bar {
+            border-radius: 10px;
+        }
+
+        .html-bar {
+            width: 80%;
+            background-color: #e34c26;
+        }
+
+        .css-bar {
+            width: 70%;
+            background-color: #1572b6;
+        }
+
+        .js-bar {
+            width: 30%;
+            background-color: #f0db4f;
+        }
+
+        .bootstrap-bar {
+            width: 30%;
+            background-color: #563d7c;
+        }
+
+        .python {
+            width: 70%;
+            background-color: #61dafb;
+        }
+
+        .contact a {
+            color: #ffffff;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+
+        .contact a:hover {
+            color: #eaab57;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="name">
+            <h1>Gowtham</h1>
+        </div>
+    </header>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">My Portfolio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#bio">Bio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#resume">Resume</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <section id="about" class="about">
+            <h2 class="section-title">About Me</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="IMG_20230811_223925_672.jpg" alt="Gowtham" class="img-fluid rounded-circle">
+                </div>
+                <div class="col-md-8">
+                    <p>👋 Hello, I'm Gowtham, and I'm passionate about crafting immersive digital experiences through
+                        web development. My journey in the tech world began with mastering the foundations—HTML, CSS,
+                        JavaScript, and Bootstrap. These tools serve as my creative palette to build dynamic and
+                        visually appealing websites.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="skills">
+            <h2 class="section-title">Skills</h2>
+            <div class="progress">
+                <div class="progress-bar html-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0"
+                    aria-valuemax="100">HTML</div>
+            </div>
+            <div class="progress">
+                <div class="progress-bar css-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0"
+                    aria-valuemax="100">CSS</div>
+            </div>
+            <div class="progress">
+                <div class="progress-bar js-bar" role="progressbar" aria-valuenow="30" aria-valuemin="0"
+                    aria-valuemax="100">JavaScript</div>
+            </div>
+            <div class="progress">
+                <div class="progress-bar bootstrap-bar" role="progressbar" aria-valuenow="30" aria-valuemin="0"
+                    aria-valuemax="100">Bootstrap</div>
+            </div>
+            <div class="progress">
+                <div class="progress-bar python" role="progressbar" aria-valuenow="70" aria-valuemin="0"
+                    aria-valuemax="100">Python</div>
+            </div>
+        </section>
+
+        <section id="projects" class="projects">
+            <h2 class="section-title">Projects</h2>
+            <div class="project">
+                <h3>Portfolio Website</h3>
+                <p>This is my personal portfolio website, showcasing my skills and projects.</p>
+            </div>
+            <div class="project">
+                <h3>Calculator</h3>
+                <p>I created a simple calculator using HTML, CSS, and JavaScript.</p>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <h2 class="section-title">Contact Me</h2>
+            <p>
+                <strong>Email:</strong> <a href="mailto:vgowtham986@gmail.com"><i class="fas fa-envelope"></i> vgowtham986@gmail.com</a><br>
+                <strong>Phone:</strong> 7207548378<br>
+                <strong>GitHub:</strong> <a href="https://github.com/gowtham996" target="_blank"><i class="fab fa-github"></i> GitHub</a><br>
+                <strong>LinkedIn:</strong> <a href="linkedin.com/in/gowtham-vallate-ab47b5278" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            </p>
+        </section>
+
+        <section id="resume" class="resume">
+            <h2 class="section-title">Resume</h2>
+            <p>
+                <a style="color: white;" class="btn content-download button-main button-scheme" href="resume/BenZhaoResumeSWE.pdf" download="Resume.pdf" >Download CV</a>
+                    
+                </a>
+            </p>
+        </section>
+    </div>
+
+    <div class="footer">
+        <p class="copyright">&copy; 2023 Gowtham. All rights reserved.</p>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BURN Fitness</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #16003B;
+            color: #DDDDDD;
+            overflow-x: hidden;
+            /* Hide horizontal scrollbar */
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            text-align: center;
+            background-color: #1689d6;
+            
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .logo {
+            text-align: left;
+            font-size: x-large;
+            color: #F10086;
+            background-color: black;
+            transition: background-color 0.3s, color 0.3s;
+            padding: 10px 20px;
+            border-radius: 10%;
+        }
+
+        .logo:hover {
+            background-color: #F73D93;
+            color: black;
+        }
+
+        nav {
+            text-align: center;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            justify-content: center;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        .menulink {
+            text-decoration: none;
+            color: #DDDDDD;
+            padding: 10px 20px;
+            border-radius: 10%;
+            transition: background-color 0.3s, color 0.3s;
+            position: relative;
+            display: inline-block;
+        }
+
+        .menulink:hover {
+            background-color: #F73D93;
+            color: black;
+        }
+
+        .menulink::before {
+            content: "";
+            display: inline-block;
+            margin-right: 5px;
+        }
+
+        #fitness-link::before {
+            content: "🏋️‍♀️";
+        }
+
+        #sports-link::before {
+            content: "⚽";
+        }
+
+        #mind-link::before {
+            content: "🧘";
+        }
+
+        #store-link::before {
+            content: "🛍️";
+        }
+
+        .hero-section {
+            background: url('your-background-image.jpg') center/cover no-repeat;
+            text-align: center;
+            padding: 100px 20px;
+            /* Adjust padding as needed */
+            color: #FFFFFF;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 18px;
+            text-decoration: none;
+            background-color: #F73D93;
+            color: #16003B;
+            border-radius: 8px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #DD2C7F;
+            color: #FFFFFF;
+        }
+
+        .section {
+            padding: 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .section h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .section p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .section img {
+            width: 100%;
+            max-width: 800px;
+            margin-top: 20px;
+            border-radius: 10px;
+        }
+
+        .packages-section {
+            background-color: #1B1B1B;
+            color: #DDDDDD;
+            padding: 60px 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: stretch;
+        }
+
+        .pack {
+            width: 100%;
+            text-align: center;
+            color: #F10086;
+            background-color: black;
+            transition: background-color 0.3s, color 0.3s;
+            padding: 10px 20px;
+            margin-bottom: 20px;
+        }
+
+        .pack:hover {
+            background-color: #F73D93;
+            color: black;
+        }
+
+        .package {
+            flex: 0 0 45%;
+            margin: 20px;
+            padding: 20px;
+            border: 2px solid #F73D93;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #16003B;
+            color: #DDDDDD;
+        }
+
+        .package:hover {
+            transform: scale(1.05);
+        }
+
+        .package h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #F73D93;
+        }
+
+        .package p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .package-price {
+            font-size: 18px;
+            margin-top: 10px;
+            color: #FFFFFF;
+        }
+
+        .contact-section {
+            background-color: #16003B;
+            color: #DDDDDD;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .contact-section h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .contact-icons {
+            font-size: 30px;
+            margin: 20px;
+        }
+
+        .contact-icons a {
+            color: #F73D93;
+        }
+
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #F73D93;
+            border-radius: 6px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: #DD2C7F;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #1B1B1B;
+        }
+
+        ::-webkit-scrollbar-thumb:active {
+            background-color: #F73D93;
+        }
+        .membership-table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        .membership-table th,
+        .membership-table td {
+            border: 2px solid #F73D93;
+            padding: 12px;
+            text-align: center;
+        }
+        
+        .membership-table th {
+            background-color: #16003B;
+            color: #DDDDDD;
+        }
+        
+        .membership-table td {
+            background-color: #1B1B1B;
+            color: #DDDDDD;
+        }
+        
+        .membership-table th, .membership-table td {
+            width: 20%; /* Adjusted column width */
+        }
+        
+        .membership-table td:first-child {
+            text-align: left; /* Left-align the first column */
+        }
+        
+        
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">BURN</div>
+        <nav>
+            <ul>
+                <li><a class="menulink" href="#fitness" id="sports-link">SPORTS</a></li>
+                <li><a class="menulink" href="#sports" id="fitness-link">FITNESS</a></li>
+                <li><a class="menulink" href="#mind" id="mind-link">MIND</a></li>
+                <li><a class="menulink" href="#store" id="store-link">STORE</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="hero-section">
+        <h1>Welcome to BURN Fitness</h1>
+        <p>Welcome to Burn, your one-stop destination for all your fitness, sports, and wellness needs. We are passionate about helping you achieve your health and fitness goals, whether you're a beginner or a seasoned athlete!</p>
+        <a href="#membership" class="cta-button">Get Started</a>
+    </div>
+
+    <div class="section" id="fitness">
+        <h2>Fitness Programs</h2>
+        <p>At Burn, we offer a wide variety of fitness classes and programs to suit all levels and interests. Our experienced trainers will guide you through every step of your fitness journey, from creating a personalized workout plan to providing expert advice on nutrition and recovery.</p>
+        <img src="fitness.jpg" alt="Fitness Programs Image">
+    </div>
+
+    <div class="section" id="sports">
+        <h2>Sports Activities</h2>
+        <p>Whether you're a competitive athlete or a recreational player, Burn has the facilities and resources to help you excel in your chosen sport. We offer specialized training programs for a variety of sports, including basketball, soccer, tennis, and swimming.</p>
+        <img src="sports.avif" alt="Sports Activities Image">
+    </div>
+
+    <div class="section" id="mind">
+        <h2>Mindfulness and Wellness</h2>
+        <p>Your physical health is just as important as your mental health. That's why we offer a variety of mind-body classes and programs to help you relax, de-stress, and improve your overall well-being. Our classes include yoga, Pilates, and meditation.</p>
+        <img src="mind.webp" alt="Mindfulness and Wellness Image">
+    </div>
+
+    <div class="section" id="store">
+        <h2>Pro Shop - Fitness Gear</h2>
+        <p>At our on-site store, you'll find a wide selection of fitness apparel, equipment, and supplements to help you achieve your goals. Our knowledgeable staff can help you find the right products for your individual needs.</p>
+        <img src="store.jpg" alt="Pro Shop Image">
+    </div>
+
+    <div class="container-fluid">
+        <div class="packages-section">
+            <div class="pack" id="store">
+                <h2>Packages Section</h2>
+            </div>
+            <div class="package">
+                <h3>Gold Package</h3>
+                <p>Our most comprehensive package includes unlimited access to all fitness programs, personalized training sessions, and exclusive member benefits.</p>
+                <ul>
+                    <li>Unlimited access to all gym facilities and classes</li>
+                    <li>Priority booking for classes</li>
+                    <li>Private training sessions</li>
+                    <li>Complimentary personal training session</li>
+                    <li>Complimentary massage or other spa treatment</li>
+                    <li>Access to the VIP lounge</li>
+                    <li>10% discount on all merchandise</li>
+                </ul>
+                <p class="package-price">Price: $99/month</p>
+            </div>
+
+            <div class="package">
+                <h3>Silver Package</h3>
+                <p>Enjoy a balanced fitness routine with access to a variety of programs. This package includes group classes and limited personal training sessions.</p>
+                <ul>
+                    <li>Access to all gym facilities and classes</li>
+                    <li>Group fitness classes</li>
+                    <li>Personal training discounts</li>
+                    <li>5% discount on all merchandise</li>
+                </ul>
+                <p class="package-price">Price: $79/month</p>
+            </div>
+
+            <div class="package">
+                <h3>Bronze Package</h3>
+                <p>Perfect for beginners, this package provides basic access to our fitness programs and facilities. Upgrade options are available as you progress.</p>
+                <ul>
+                    <li>Access to all gym facilities</li>
+                    <li>Cardio and weight training equipment</li>
+                    <li>Group fitness classes (limited selection)</li>
+                </ul>
+                <p class="package-price">Price: $59/month</p>
+            </div>
+        </div>
+    </div>
+    <div class="section" id="membership">
+        <h2>Membership Privileges</h2>
+        <table class="membership-table">
+            <tr>
+                <th>Privilege</th>
+                <th>Gold</th>
+                <th>Silver</th>
+                <th>Bronze</th>
+            </tr>
+            <tr>
+                <td>Unlimited access to all facilities and classes</td>
+                <td>Yes</td>
+                <td>Yes</td>
+                <td>Yes</td>
+            </tr>
+            <tr>
+                <td>Priority booking for classes</td>
+                <td>Yes</td>
+                <td>No</td>
+                <td>No</td>
+            </tr>
+            <tr>
+                <td>Private training sessions</td>
+                <td>Included</td>
+                <td>Discounted</td>
+                <td>No</td>
+            </tr>
+            <tr>
+                <td>Complimentary personal training session</td>
+                <td>Yes</td>
+                <td>No</td>
+                <td>No</td>
+            </tr>
+            <tr>
+                <td>Complimentary massage or other spa treatment</td>
+                <td>Yes</td>
+                <td>No</td>
+                <td>No</td>
+            </tr>
+            <tr>
+                <td>Access to the VIP lounge</td>
+                <td>Yes</td>
+                <td>No</td>
+                <td>No</td>
+            </tr>
+            <tr>
+                <td>Discount on merchandise</td>
+                <td>10%</td>
+                <td>5%</td>
+                <td>No</td>
+            </tr>
+        </table>
+    </div>
+    
+
+    <div class="contact-section" id="contact">
+        <h2>Contact Us</h2>
+        <div class="contact-icons">
+            <a href="mailto:info@burnfitness.com" target="_blank">&#9993; Email</a>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
